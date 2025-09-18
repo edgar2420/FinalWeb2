@@ -10,11 +10,11 @@ module.exports = {
         }
         return true;
     },
-    sendError500: (error, res) => { // Asegúrate de recibir 'res' como argumento
-        console.error('Error:', error); // Cambiado a console.error para errores
+    sendError500: (error, res) => {
+        console.error('Error:', error);
         res.status(500).json({
             msg: 'Error en el servidor',
-            error: error.message // Agregar detalle del error para facilitar depuración
+            error: error.message
         });
     },
 };
