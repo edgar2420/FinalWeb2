@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const db = require('../models');
-const { generateToken } = require('../utils/token.utils'); // Asegúrate de que esta sea la función correcta
+const { generateToken } = require('../utils/token.utils');
 
 exports.login = async (req, res) => {
     const { email, password } = req.body;  // Obtén el email y la contraseña
@@ -15,14 +15,14 @@ exports.login = async (req, res) => {
         }
 
         // Verifica si las contraseñas coinciden
-        const isPasswordValid = await bcrypt.compare(password, usuario.password); // Contraseña en texto plano comparada con la contraseña hasheada
+        const isPasswordValid = await bcrypt.compare(password, usuario.password);
 
         if (!isPasswordValid) {
             return res.status(401).json({ msg: "Correo o contraseña incorrectos" });
         }
 
-        // Si la contraseña es válida, genera un token con la función de tu utils
-        const token = generateToken(usuario); // Usamos la función que ya tienes
+        
+        const token = generateToken(usuario);
 
         // Crea el token en la base de datos
         await db.auth_tokens.create({
@@ -85,7 +85,7 @@ exports.me = async (req, res) => {
             return res.status(401).json({ message: "Unauthorized - Invalid token format" });
         }
 
-        // Asegúrate de que el nombre del modelo es correcto
+       
         const tokenObj = await db.auth_tokens.findOne({
             where: { token }
         });
