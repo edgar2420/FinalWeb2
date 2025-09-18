@@ -30,11 +30,11 @@ module.exports = (sequelize, Sequelize) => {
         modificadoPor: {
             type: Sequelize.INTEGER,
             allowNull: true,
-            references: { model: 'usuarios', key: 'id' }, // Relación con la tabla de usuarios
+            references: { model: 'usuarios', key: 'id' },
         },
         modificadoEn: {
             type: Sequelize.DATE,
-            defaultValue: Sequelize.NOW, // Fecha del último cambio
+            defaultValue: Sequelize.NOW,
         },
     });
 
