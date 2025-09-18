@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         password: {
             type: Sequelize.STRING,
-            allowNull: false,  // Asegúrate de que `password` es obligatorio
+            allowNull: false, 
         },
         role: {
             type: Sequelize.ENUM('admin', 'verificador', 'publico'),
