@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:3000/api/usuarios";  // Cambia la URL de acuerdo con tu servidor
+const baseURL = "http://localhost:3000/api/usuarios";
 
 // Obtener todos los usuarios
 export const getUsuarios = async () => {
